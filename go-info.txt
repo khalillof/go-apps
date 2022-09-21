@@ -1,0 +1,66 @@
+#init
+go mod init github.com/YOUR_USERNAME/go-gin-api-medium
+
+#  gin api web framework
+ go get -u github.com/gin-gonic/gin
+
+# ORM library for Golang
+go get -u gorm.io/gorm
+
+# Viper is a complete configuration solution for Go applications including 12-Factor apps. It is designed to work within an application, and can handle all types of configuration needs and formats. It supports:
+# setting defaults
+# reading from JSON, TOML, YAML, HCL, envfile and Java properties config files
+# live watching and re-reading of config files (optional)
+# reading from environment variables
+# reading from remote config systems (etcd or Consul), and watching changes
+# reading from command line flags
+# reading from buffer
+# setting explicit values
+
+go get github.com/spf13/viper
+
+# go driver for postgres
+go get gorm.io/driver/postgres
+
+
+# go run cmd/main
+==========================
+$ go get github.com/spf13/viper
+$ go get github.com/gin-gonic/gin
+$ go get gorm.io/gorm
+$ go get gorm.io/driver/postgres
+====================================
+
+#test app 
+POST: Add a new Book
+$ curl --request POST \
+  --url http://localhost:3000/books/ \
+  --header 'Content-Type: application/json' \
+  --data '{
+    "title": "Book A",
+    "author": "Kevin Vogel",
+    "description": "Some cool description"
+  }'
+GET: Get All Books
+Don’t forget, you can run GET commands also in your browser.
+
+$ curl --request GET --url http://localhost:3000/books/
+
+GET: Get Book by ID
+$ curl --request GET --url http://localhost:3000/books/1/
+
+PUT: Update Book by ID
+$ curl --request PUT \
+  --url http://localhost:3000/books/1/ \
+  --header 'Content-Type: application/json' \
+  --data '{
+ "title": "Updated Book Name",
+ "author": "Kevin Vogel",
+ "description": "Updated description"
+}'
+DELETE: Delete Book by ID
+$ curl --request DELETE --url http://localhost:3000/books/1/
+We are done! Great. Don’t forget, I have uploaded this project on Github.
+
+
+
